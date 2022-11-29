@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alternance.Vues.Tarification"
+             Title="Tarification">
+    <ScrollView Orientation="Vertical">
+        <VerticalStackLayout>
+            <Label 
+            Text="Tarification"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Header"/>
+            <Label Text="Veuillez saisir le nombre d'adresses voulues"></Label>
+            <Entry x:Name="nbAdresse" ></Entry>
+            <Label Text="Veuillez séléctionner votre support" HorizontalOptions="Center"></Label>
+            <Label Text="Téléchargement"></Label>
+            <CheckBox x:Name="Tel" IsChecked="False" CheckedChanged="Tel_CheckedChanged"></CheckBox>
+            <Label Text="Etiquettes"></Label>
+            <CheckBox x:Name="Eti" IsChecked="False" CheckedChanged="Eti_CheckedChanged"></CheckBox>
+            <Label Text="Liste Papier"></Label>
+            <CheckBox x:Name="Pap" IsChecked="False" CheckedChanged="Pap_CheckedChanged"></CheckBox>
+            <Label Text="CD-ROM"></Label>
+            <CheckBox x:Name="Cd" IsChecked="False" CheckedChanged="Cd_CheckedChanged"></CheckBox>
+
+            <Label x:Name="Affichage" Text="" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+
+            <Button Text="Valider" Clicked="Button_Clicked"></Button>
+            <Label 
+            Text="Tarif de l'AEF"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Header"/>
+
+
+
+            <StackLayout>
+            <Grid Margin="390,0,0,-300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="70" />
+                </Grid.ColumnDefinitions>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[0]}"  Grid.Row="0" Grid.Column="1"></Label>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[1]}"  Grid.Row="0" Grid.Column="2"></Label>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[2]}"  Grid.Row="0" Grid.Column="3"></Label>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[3]}"  Grid.Row="0" Grid.Column="4"></Label>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[4]}"  Grid.Row="0" Grid.Column="5"></Label>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[5]}"  Grid.Row="0" Grid.Column="6"></Label>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[6]}"  Grid.Row="0" Grid.Column="7"></Label>
+                    <Label BackgroundColor="MediumPurple" Text="{Binding LesAdresses[7]}"  Grid.Row="0" Grid.Column="8"></Label>
+            </Grid>
+
+            <CollectionView ItemsSource="{Binding Test}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="400,0,0,0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="60" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                            </Grid.ColumnDefinitions>
+                                <Label TextColor="Black" BackgroundColor="Beige" Text="Selon Supports" Grid.Row="0" Grid.Column="0"></Label>
+                                <Label BackgroundColor="DarkBlue" Text="Téléchargement(csv, xls)" Grid.Row="1" Grid.Column="0"></Label>
+                                <Label BackgroundColor="DarkBlue" Text="CD-ROM (toute quantité; csv, xls)" Grid.Row="2" Grid.Column="0"></Label>
+                                <Label BackgroundColor="DarkBlue" Text="Liste papier" Grid.Row="3" Grid.Column="0"></Label>
+                                <Label BackgroundColor="DarkBlue" Text="Etiquettes" Grid.Row="4" Grid.Column="0"></Label>
+                            <Label BackgroundColor="Red" Text="Prix Facturés" Grid.Row="0" Grid.Column="9"></Label>
+
+                            <Label Text="{Binding Valeur[0]}" Grid.Column="1" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[1]}"  Grid.Column="2" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[2]}"  Grid.Column="3" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[3]}"  Grid.Column="4" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[4]}"  Grid.Column="5" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[5]}"  Grid.Column="6" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[6]}"  Grid.Column="7" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[7]}"  Grid.Column="8" Grid.Row="1"></Label>
+                            <Label Text="{Binding Valeur[8]}"  Grid.Column="1" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[9]}"  Grid.Column="2" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[10]}"  Grid.Column="3" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[11]}"  Grid.Column="4" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[12]}"  Grid.Column="5" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[13]}"  Grid.Column="6" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[14]}"  Grid.Column="7" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[15]}"  Grid.Column="8" Grid.Row="2"></Label>
+                            <Label Text="{Binding Valeur[16]}"  Grid.Column="1" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[17]}"  Grid.Column="2" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[18]}"  Grid.Column="3" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[19]}"  Grid.Column="4" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[20]}"  Grid.Column="5" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[21]}"  Grid.Column="6" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[22]}"  Grid.Column="7" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[23]}"  Grid.Column="8" Grid.Row="3"></Label>
+                            <Label Text="{Binding Valeur[24]}"  Grid.Column="1" Grid.Row="4"></Label>
+                            <Label Text="{Binding Valeur[25]}"  Grid.Column="2" Grid.Row="4"></Label>
+                            <Label Text="{Binding Valeur[26]}"  Grid.Column="3" Grid.Row="4"></Label>
+                            <Label Text="{Binding Valeur[27]}"  Grid.Column="4" Grid.Row="4"></Label>
+                            <Label Text="{Binding Valeur[28]}"  Grid.Column="5" Grid.Row="4"></Label>
+                            <Label Text="{Binding Valeur[29]}"  Grid.Column="6" Grid.Row="4"></Label>
+                            <Label Text="{Binding Valeur[30]}"  Grid.Column="7" Grid.Row="4"></Label>
+                            <Label Text="{Binding Valeur[31]}"  Grid.Column="8" Grid.Row="4"></Label>
+                            <Label BackgroundColor="Red" Text="5" Grid.Column="9" Grid.Row="1"></Label>
+                            <Label BackgroundColor="Red" Text="30" Grid.Column="9" Grid.Row="2"></Label>
+                            <Label BackgroundColor="Red" Text="30" Grid.Column="9" Grid.Row="3"></Label>
+                            <Label BackgroundColor="Red" Text="30" Grid.Column="9" Grid.Row="4"></Label>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
